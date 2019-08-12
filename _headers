@@ -78,6 +78,13 @@
   Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
   Link: </1-555dcff30d49353f436a.js>; rel=preload; as=script
   Link: </component---src-templates-not-found-template-js-28be3a002bb4641aca76.js>; rel=preload; as=script
+/pages/about/
+  Link: </webpack-runtime-d17ce4c0f018bea501b5.js>; rel=preload; as=script
+  Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
+  Link: </app-49cd401a7b20e918567a.js>; rel=preload; as=script
+  Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
+  Link: </1-555dcff30d49353f436a.js>; rel=preload; as=script
+  Link: </component---src-templates-page-template-js-20b501fdf0e4757f3a77.js>; rel=preload; as=script
 /pages/contacts/
   Link: </webpack-runtime-d17ce4c0f018bea501b5.js>; rel=preload; as=script
   Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
@@ -93,22 +100,7 @@
   Link: </1-555dcff30d49353f436a.js>; rel=preload; as=script
   Link: </2-9da65bbaa5aeb83094b6.js>; rel=preload; as=script
   Link: </component---src-templates-post-template-js-8d95ce870cd234592938.js>; rel=preload; as=script
-/pages/about/
-  Link: </webpack-runtime-d17ce4c0f018bea501b5.js>; rel=preload; as=script
-  Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
-  Link: </app-49cd401a7b20e918567a.js>; rel=preload; as=script
-  Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
-  Link: </1-555dcff30d49353f436a.js>; rel=preload; as=script
-  Link: </component---src-templates-page-template-js-20b501fdf0e4757f3a77.js>; rel=preload; as=script
 /posts/a-brief-history-of-typography/
-  Link: </webpack-runtime-d17ce4c0f018bea501b5.js>; rel=preload; as=script
-  Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
-  Link: </app-49cd401a7b20e918567a.js>; rel=preload; as=script
-  Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
-  Link: </1-555dcff30d49353f436a.js>; rel=preload; as=script
-  Link: </2-9da65bbaa5aeb83094b6.js>; rel=preload; as=script
-  Link: </component---src-templates-post-template-js-8d95ce870cd234592938.js>; rel=preload; as=script
-/posts/the-origins-of-social-stationery-lettering
   Link: </webpack-runtime-d17ce4c0f018bea501b5.js>; rel=preload; as=script
   Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
   Link: </app-49cd401a7b20e918567a.js>; rel=preload; as=script
@@ -125,6 +117,14 @@
   Link: </2-9da65bbaa5aeb83094b6.js>; rel=preload; as=script
   Link: </component---src-templates-post-template-js-8d95ce870cd234592938.js>; rel=preload; as=script
 /posts/the-birth-of-movable-type/
+  Link: </webpack-runtime-d17ce4c0f018bea501b5.js>; rel=preload; as=script
+  Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
+  Link: </app-49cd401a7b20e918567a.js>; rel=preload; as=script
+  Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
+  Link: </1-555dcff30d49353f436a.js>; rel=preload; as=script
+  Link: </2-9da65bbaa5aeb83094b6.js>; rel=preload; as=script
+  Link: </component---src-templates-post-template-js-8d95ce870cd234592938.js>; rel=preload; as=script
+/posts/the-origins-of-social-stationery-lettering
   Link: </webpack-runtime-d17ce4c0f018bea501b5.js>; rel=preload; as=script
   Link: </styles-3ae1e6b6e64083b869fd.js>; rel=preload; as=script
   Link: </app-49cd401a7b20e918567a.js>; rel=preload; as=script

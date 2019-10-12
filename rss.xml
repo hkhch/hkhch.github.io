@@ -1,4 +1,630 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by John Doe]]></title><description><![CDATA[Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.]]></description><link>https://hkhch.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 12 Aug 2019 15:09:38 GMT</lastBuildDate><item><title><![CDATA[Humane Typography in the Digital Age]]></title><description><![CDATA[An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.]]></description><link>https://hkhch.github.io//posts/humane-typography-in-the-digital-age/</link><guid isPermaLink="false">https://hkhch.github.io//posts/humane-typography-in-the-digital-age/</guid><pubDate>Sat, 19 Aug 2017 22:40:32 GMT</pubDate><content:encoded>&lt;ul&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by John Doe]]></title><description><![CDATA[Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.]]></description><link>https://hkhch.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Sat, 12 Oct 2019 04:36:27 GMT</lastBuildDate><item><title><![CDATA[URI]]></title><description><![CDATA[URI, URL, URN의 차이에 대해 알아보자]]></description><link>https://hkhch.github.io//posts/URI/</link><guid isPermaLink="false">https://hkhch.github.io//posts/URI/</guid><pubDate>Tue, 20 Aug 2019 11:11:11 GMT</pubDate><content:encoded>&lt;head&gt;
+&lt;style&gt;
+  code {
+    background-color: #ececec
+  }
+  p {
+    font-size: 15px;
+  }
+  tr{
+    text-align: right;
+  }
+  sub{
+    font-size: 14px;
+    vertical-align: middle;
+    padding: 0px;
+    line-height: 30px;
+    color: #2680d9;
+  }
+  li{
+    margin: 20px 0px;
+    /* list-style: none; */
+  }
+  strong{
+    font-size: 18px;
+    vertical-align: middle;
+  }
+  small{
+    color: #808080;
+  }
+  #rcorners {
+    border-radius: 25px;
+    border: 2px solid #dd4ecf;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;  
+  }
+  .rdimg {
+    border-radius: 25px;
+  }
+  img{
+    margin-bottom: 10px;
+  }
+  ol, ul{
+    line-height: 30px;
+    font-size: 15px;
+  }
+  .alignR{
+    text-align: left;
+  }
+  table{
+    width: 100%;
+    line-height: 25px;
+    margin: 20px;
+  }
+  table, td, th, tr{
+    border: 1px solid #2680d9;
+    text-align: left;
+    font-size: 13px;
+    border-collapse: collapse;
+    padding: 10px;
+  }
+  tr:first-child{
+    background-color: #3BAFC9;
+    color: white;
+  }
+  a { 
+    text-decoration: none;
+  }
+  .imageContainer {
+    float: left;
+  }
+  .card{
+    border: 1px dotted #2680d9;
+    color: #2680d9;
+    max-width: 380px;
+    padding: 10px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;div style=&quot;font-family: &apos;Nanum Gothic Coding&apos;, monospace;&quot;&gt;
+&lt;img src=&quot;/media/uriUrlUrn.png&quot; alt=&quot;URI URL URN&quot; vspace=&quot;15px&quot;&gt;&lt;br&gt;
+&lt;center font-size=&quot;13px&quot;&gt;자주 혼동되어 사용되는 URI 와 URL에 대해 알아봄으로써 개념을 확실히 다져보자.&lt;/center&gt;&lt;br&gt;
+&lt;p&gt;
+  좋은 웹 개발자가 되기 위해서는 인터넷 동작에 관한 이해는 필수이다. URI와 URL은 네트워크의 기본이 되는 개념이지만 여전히 적지 않은 사람들이 이 두 단어를 혼동하여 사용한다. 이 두 단어가 혼동이 된 채로 사용이 되는 이유는 서로 어느정도의 연관성이 있기 때문이다. URL은 URI에 포함되는 개념이다. 모든 URL은 URI 이지만, 모든 URI 는 URL이 아니다. &lt;br&gt;
+  자 그럼 URI, URL을 비롯하여 URN에 대해 알아보겠다.
+&lt;/p&gt;
+&lt;h3&gt;URI&lt;/h3&gt;
+&lt;p&gt;
+  &lt;b&gt;URI : &lt;/b&gt;Uniform Resource Identifier | 통합 자원 식별자&lt;br&gt;
+  광활한 웹세상에서 우리가 원하는 특정 자원(Resource)을 어떻게 찾아낼 것인가? &lt;br&gt;
+  한국인은 주민등록번호, 미국인은 SSN로 개개인의 유니크한 번호를 부여받는다. 이처럼 웹의 수많은 정보들 또한 하나 하나 유니크하게 구분짓는 식별법이 필요하다. 이는 URI를 통해 가능해진다. URI는 URL과 URN을 포함한 개념이다. 즉, URI는 이름이나 로케이터가 될 수 있다.
+&lt;/p&gt;
+&lt;img src=&quot;/media/uriUrLUrnDifferences.png&quot; alt=&quot;Diffrences between URI URN URN&quot; vspace=&quot;15px&quot; width=&quot;300&quot;&gt;
+&lt;h4&gt;URI Format&lt;/h4&gt;
+&lt;p&gt;
+  URI는 자원을 식별하기 위해 사용되는 표준이니 만큼 정해진 포멧이 있다.&lt;br&gt;
+  &lt;code&gt;&amp;lt;scheme&gt;://&amp;lt;authority&gt;&amp;lt;path&gt;?&amp;lt;query&gt;&lt;/code&gt;&lt;br&gt;
+  &lt;sub&gt;* Scheme은 프로토콜일 필요가 없다.&lt;/sub&gt;&lt;br&gt;&lt;br&gt;
+  &lt;b&gt;e.g.&lt;/b&gt;
+  &lt;ul&gt;
+    &lt;li&gt;https://babytiger.netlify.com/&lt;/li&gt;
+    &lt;li&gt;ftp://babytiher.netlify.com/&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;h4&gt;URI Parameter&lt;/h4&gt;
+&lt;p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Scheme&lt;/li&gt;
+    Scheme name
+    &lt;li&gt;userInfo&lt;/li&gt;
+    User name and authorization information
+    &lt;li&gt;host&lt;/li&gt;
+    Host name
+    &lt;li&gt;port&lt;/li&gt;
+    Port number
+    &lt;li&gt;path&lt;/li&gt;
+    &lt;li&gt;query&lt;/li&gt;
+    &lt;li&gt;fragment&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;h3&gt;URL&lt;/h3&gt;
+&lt;p&gt;
+  &lt;b&gt;URL : &lt;/b&gt; Uniform Resource Locator | 통합 자원 위치&lt;br&gt;
+  리소스 로케이터 즉 주소를 의미한다. &quot;리소스를 어디서 찾을 수 있는지&quot;에 대한 위치 정보를 알려준다. 위치 기반이기에 해당 위치에 존재했었던 자원이 사라지거나 변경될 수 있다. 그로 인해 특정 주소를 입력하여 자료를 찾아보았지만 원하는 정보를 얻지 못할 수도 있다.
+&lt;/p&gt;
+&lt;h3&gt;URN&lt;/h3&gt;
+&lt;p&gt;
+  &lt;b&gt;URN : &lt;/b&gt;Uniform Resource Name | 통합 자원 이름&lt;br&gt;
+  특정 리소스에게 주어진 유니크한 이름이다. 이 이름은 영속성을 지닌다. 중복되는 값이 존재하지 않는다. URN을 이용한다는 것은 자원을 이름을 통해 찾는 것을 의미한다. URN은 URL로 부터 독립적이다. 하지만 URL보다 많이 사용되지 않는데 그 이유는 파일에 대한 위치를 저장할 장비가 필요하기 때문이다. 
+&lt;/p&gt;
+&lt;h3&gt;리소스 찾기&lt;/h3&gt;
+&lt;p&gt;
+  원하는 리소스&lt;small&gt; (document, images, videos, books etc) &lt;/small&gt;를 찾기 위해 어떻게 접근할 것인가?&lt;br&gt;
+  우리는 누군가를 찾을때 그 사람의 이름이나 그 사람이 살고 있는 주소를 통해서 찾는다. 대부분의 사람들은 살아가면서 개명을 잘 하지 않는다. 하지만 살고 있는 장소는 자주 변경된다. 인터넷 상에서 존재하는 리소스도 이와 같다. 
+&lt;/p&gt;
+&lt;p&gt;
+  예를 들어보겠다.&lt;br&gt;
+  지구상에서는 Ironman이라는 유일무이한 영웅이 살고 있다.  우리는 Ironman을 찾아야 하는데 전 세계적으로 아이언맨이라는 이름 &lt;small&gt; (URN) &lt;/small&gt;을 가진 자는 한 명 뿐이기에 해당 이름을 통해 쉽게 찾을 수 있다. 혹은, 아이언맨이 살고 있는 주소를 아는 경우라면 주소 &lt;small&gt;(URL) &lt;/small&gt;로 찾아가면 된다.&lt;br&gt;&lt;br&gt;
+  &lt;center&gt;이름: Ironman (Tony Stark)&lt;br&gt;
+  주소: 10880 Malibu Point, CA 90265&lt;/center&gt;
+&lt;/p&gt;
+&lt;img src=&quot;/media/findIronman.png&quot; alt=&quot;Find Ironman&quot; vspace=&quot;15px&quot; width=&quot;500&quot;&gt;
+&lt;center&gt;&lt;small&gt;Ironman illustrated by.Yuri Krasnoshchock&lt;/small&gt;&lt;/center&gt;
+&lt;p&gt;
+  2019년 Ironman이 플로리다로 이사했다고 한다. 현재 10880 말리부에는 Captain America가 이사하였다. 누군가가 아이언맨을 만나기 위해 기존의 주소로 찾아간다면 엉뚱하게도 캡틴 아메리카를 만나게 될 것이다. 이처럼 URL에 있는 리소스는 충분히 변경될 수 있다. 
+&lt;/p&gt;
+&lt;img src=&quot;/media/findCaptainAmerica.png&quot; alt=&quot;Find Captain America&quot; vspace=&quot;15px&quot; width=&quot;500&quot;&gt;
+&lt;center&gt;&lt;small&gt;Captain America illustrated by.Yuri Krasnoshchock&lt;/small&gt;&lt;/center&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://dev.to/flippedcoding/what-is-the-difference-between-a-uri-and-a-url-4455&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;What Is The Difference Between A URI And A URL?&lt;/a&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=if0pzXWZOfY&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;What&apos;s the Difference Between URI, URL, and URN?&lt;/a&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=U_67f88EMrw&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;URI URL 和 URN&lt;/a&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;a href=&quot;https://www2.cs.duke.edu/csed/java/jdk1.6/api/java/net/URI.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Class URI&lt;/a&gt;&lt;/li&gt; 
+  &lt;/ul&gt;
+&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Linux Boot Loader]]></title><description><![CDATA[파워 버튼을 누르면 제일 먼저 실행되는 리눅스의 프로그램인 boot loader에 대해 알아보자]]></description><link>https://hkhch.github.io//posts/linux-boot-loader/</link><guid isPermaLink="false">https://hkhch.github.io//posts/linux-boot-loader/</guid><pubDate>Mon, 19 Aug 2019 11:11:11 GMT</pubDate><content:encoded>&lt;head&gt;
+&lt;style&gt;
+  code {
+    background-color: #ececec
+  }
+  p {
+    font-size: 15px;
+  }
+  tr{
+    text-align: right;
+  }
+  sub{
+    font-size: 14px;
+    vertical-align: middle;
+    padding: 0px;
+    line-height: 30px;
+    color: #2680d9;
+  }
+  li{
+    margin: 20px 0px;
+    /* list-style: none; */
+  }
+  strong{
+    font-size: 18px;
+    vertical-align: middle;
+  }
+  small{
+    color: #808080;
+  }
+  #rcorners {
+    border-radius: 25px;
+    border: 2px solid #dd4ecf;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;  
+  }
+  .rdimg {
+    border-radius: 25px;
+  }
+  img{
+    margin-bottom: 10px;
+  }
+  ol, ul{
+    line-height: 30px;
+  }
+  .alignR{
+    text-align: left;
+  }
+  table{
+    width: 100%;
+    line-height: 25px;
+    margin: 20px;
+  }
+  table, td, th, tr{
+    border: 1px solid #2680d9;
+    text-align: left;
+    font-size: 13px;
+    border-collapse: collapse;
+    padding: 10px;
+  }
+  tr:first-child{
+    background-color: #3BAFC9;
+    color: white;
+  }
+  a { 
+    text-decoration: none;
+  }
+  .imageContainer {
+    float: left;
+  }
+  .card{
+    border: 1px dotted #2680d9;
+    color: #2680d9;
+    max-width: 380px;
+    padding: 10px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;div style=&quot;font-family: &apos;Nanum Gothic Coding&apos;, monospace;&quot;&gt;
+&lt;img src=&quot;/media/linux_gnu.jpg&quot; alt=&quot;Linux GNU&quot; class=&quot;rdimg&quot;  vspace=&quot;15px&quot; height=&quot;250&quot;&gt;
+&lt;small&gt;&lt;center&gt;&lt;p style=&quot;padding-bottom: 15px; display:block; clear:both&quot; &gt; Image Source : Redbubble.com&lt;/center&gt;&lt;/small&gt;
+&lt;center font-size=&quot;13px&quot;&gt;시스템 파워 버튼을 누른 다음 리눅스에서는 어떠한 일이 일어날까? &lt;/center&gt;&lt;br&gt;
+&lt;h3&gt;Boot Loader&lt;/h3&gt;
+&lt;p&gt;
+  부트로더는 OS를 부트 시킬때 실행되는 프로그램이다. 즉 가장 먼저 실행되는 프로그램이라 할 수있다. 부트로더는 하드웨어 의존성이 강하기에 각각의 OS별로 다른 부트로더들이 사용된다. 우리는 리눅스의 부트로더에 대해 알아볼 것이다.
+  &lt;br&gt;&lt;sub&gt;&lt;b&gt;* boot :&lt;/b&gt; 컴퓨터에 리셋을 발생시켜 새롭게 컴퓨터를 기동시키는 작업 | 전원을 누르는 순간부터 바탕화면이 뜨는 그 순간까지를 의미&lt;/sub&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  만약 컴퓨터에 단 하나의 OS만 존재한다면 부트로더는 해당 커널을 로드하기만 하면 된다. 하지만 여러 OS가 설치되어있거나 다양한 커널이 설치되어 있다면 컴퓨터는 그 중에 어떤 것(OS든 커널이든)을 사용할것인지 우리가 선택하도록 해준다. 부트로더는 운영체제가 실행되기 전에 필히 먼저 실행되야 하는 프로그램으로써 커널이 올바르게 작동될 수 있도록 모든 관련 작업들을 처리한다. 
+&lt;/p&gt;
+&lt;h4&gt;기능&lt;/h4&gt;
+&lt;p&gt;
+  부트로더의 기능은 아래와 같다.
+  &lt;ul&gt;
+    &lt;li&gt;&lt;b&gt;초기화 :&lt;/b&gt; 메모리, 하드웨어, 직렬포트, 네트워크, 프로세서 속도, 인터럽트&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;적재 및 실행 :&lt;/b&gt; Kernel, RAM&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;UI :&lt;/b&gt; 사용자 인터페이스 기능&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;h4&gt;6가지 스탭&lt;/h4&gt;
+&lt;p&gt;
+리눅스의 부트로더는 총 6가지&lt;small&gt;(BIOS 부터 Runlevel까지)&lt;/small&gt;의 스탭으로 나뉜다. 각각의 스탭은 아래와 같다.
+  &lt;!-- &lt;ol&gt;
+    &lt;li&gt;BIOS&lt;/li&gt;
+    &lt;li&gt;MBR&lt;/li&gt;
+    &lt;li&gt;GRUB&lt;/li&gt;
+    &lt;li&gt;Kernel&lt;/li&gt;
+    &lt;li&gt;Init&lt;/li&gt;
+    &lt;li&gt;Runlevel&lt;/li&gt;
+  &lt;/ol&gt; --&gt;
+&lt;/p&gt;
+&lt;img src=&quot;/media/bootloaderStep.png&quot; alt=&quot;Step of Bootloader&quot; vspace=&quot;30px&quot; width=&quot;300&quot;&gt;
+&lt;p&gt;
+  이 여섯가지의 Boot process의 과정을 배움으로써 리눅스에서 발생한 문제를 해결할수 있는 능력이 상승할 것이다. 또한 리눅스 작동원리에 대한 이해력이 높아진다. 스탭별로 어떠한 작업이 이루어지는지 자세히 알아보자.
+&lt;/p&gt;
+&lt;h3&gt;BIOS&lt;/h3&gt;
+&lt;p&gt;
+  &lt;b&gt;BIOS:&lt;/b&gt; Basic Input Output System&lt;br&gt;
+  파워 버튼을 누르면 파워 서플라이가 전기가 공급되는지 확인을 한 후에 BIOS로 &quot;Power Good&quot; 이라는 신호&lt;small&gt;(+5 volts signal)&lt;/small&gt;를 보내게 된다. 이 과정은 보통 0.1초에서 0.5초 정도 소요된다. 
+  &lt;img src=&quot;/media/powerGood.png&quot; alt=&quot;Power Good Signal&quot; vspace=&quot;30px&quot; width=&quot;300&quot;&gt;
+  그 후, Boot Process의 첫번째 과정인 BIOS 프로그램이 실행된다. BIOS는 이름이 의미하듯이 모든 데이터의 입출력을 제어하여 주는 프로그램이다. BIOS가 시작되면서 키보드, 스크린을 포함한 하드웨어를 초기화하고 설정한다. 이 과정을 POST&lt;small&gt;(Power On Self Test)&lt;/small&gt;라고 한다. Test가 진행되며 여러 요소들을 체크 한 후 POST 과정을 모니터에 출력시킨다. 테스트 내용으로는 System Bus, RTC&lt;small&gt;(Real-Time Clock)&lt;/small&gt;, 그래픽 카드, 키보드 동작, RAM등이 있다. 화면에 관련 정보인 BIOS, Mainboard, CPU, 메모리 용량 등이 표시된다. 이 이후 과정은 OS가 주관하게 된다.
+  &lt;br&gt;&lt;sub&gt;* &lt;b&gt;BIOS&lt;/b&gt;는 마더보드에 장착되어 있는 ROM 칩에 저장되어 있다.&lt;br&gt;
+  * &lt;b&gt;POST (시동 자체 시험) :&lt;/b&gt;BIOS가 CPU에게 POST 작업을 지시한다.
+  &lt;/sub&gt;  
+&lt;/p&gt;
+&lt;h3&gt;MBR&lt;/h3&gt;
+&lt;p&gt;
+  &lt;b&gt;MBR : &lt;/b&gt;Master Boot Record&lt;br&gt;
+  POST가 완료되면, 시스템 컨트롤은 BIOS를 부트로더에 옮긴다. 대부분의 경우 부트로더는 하드디스크에 담겨있다. OS를 실행시키기 위해 하드디스크에 저장되어진 정보를 읽어들여야 하는데 이 정보는 MBR에 저장되어 있다. MBR은 기억장치의 512 bytes 저장공간이다. 
+  &lt;br&gt;&lt;sub&gt;* 리눅스가 부팅이 안되는 상황은 MBR이 제거된 경우에도 벌어진다. 이럴때는 지워진 MBR을 다시 복구해야 한다.&lt;/sub&gt;
+&lt;/p&gt;
+&lt;img src=&quot;/media/sector.png&quot; alt=&quot;Sector&quot; class=&quot;rdimg&quot;  vspace=&quot;30px&quot; height=&quot;500&quot;&gt;
+&lt;p&gt;
+  MBR이 위치한 곳은 기억장치에서 첫번째 섹터&lt;small&gt;(Sector)&lt;/small&gt;이다. MBR에는 부팅을 하기 위한 정보를 갖고 있다. MBR은 GRUB 부트로더를 적재시키고 실행한다.
+ &lt;br&gt;&lt;sub&gt;*&lt;b&gt; Sector:&lt;/b&gt; 하드디스크에서 주소 지정을 할 수 있는 최소의 단위 | 섹터단위로 데이터를 읽거나 기록 ( 섹터 하나당 512 바이트 기록 가능)&lt;/sub&gt;
+&lt;/p&gt;
+&lt;img src=&quot;/media/MBRloads.png&quot; alt=&quot;MBR loads GRUB&quot; class=&quot;rdimg&quot;  vspace=&quot;30px&quot; width=&quot;350&quot;&gt;
+&lt;p&gt;
+  MBR은 세 가지 구성요소인 부트코드&lt;small&gt; (446 bytes)&lt;/small&gt;, 파티션 테이블 &lt;small&gt;(64 bytes)&lt;/small&gt;, 시그니쳐 &lt;small&gt;(2 bytes)&lt;/small&gt;로 이루어져 있다. 512 bytes가 어떠한 정보로 이루어져 있는지 살펴보자.&lt;br&gt;
+  &lt;sub&gt;* 리눅스에서 부트로더는 GRUB 외에도 다양하다. 다른 종류로는 &lt;b&gt;ISOLINUX&lt;/b&gt; (이동식 매체로 부터 부팅 될 때), &lt;b&gt;DAS U-Boot&lt;/b&gt; (embedded 디바이스로부터 부팅 될때) 등이 있다.&lt;/sub&gt;
+&lt;/p&gt;
+&lt;img src=&quot;/media/mbrStruct.png&quot; alt=&quot;MBR Structure&quot; class=&quot;rdimg&quot;  vspace=&quot;30px&quot; height=&quot;480&quot;&gt;
+&lt;img src=&quot;/media/mbrArchi.png&quot; alt=&quot;MBR Partition Table&quot; vspace=&quot;30px&quot; width=&quot;400&quot;&gt;
+&lt;p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;b&gt;Boot Code 부트코드&lt;/b&gt; (446 bytes)&lt;/li&gt;
+    부팅을 하기 위한 정보가 담겨 있다.&lt;br&gt;
+    실행될 코드와 에러 메시지가 저장되어 있다.
+    &lt;li&gt;&lt;b&gt;Partition Table 파티션 테이블 | 분할표&lt;/b&gt; (64 bytes)&lt;/li&gt;
+    파티션에 관한 정보가 담겨 있다.&lt;br&gt;
+    부팅에 필요한 정보가 있는 파티션으로 점프시켜주기 위한 정보.&lt;br&gt;
+    총 네개의 파티션으로 나뉘어져 있다. (4 * 16)&lt;br&gt;
+    OS는 파티션을 단위로 하여 디스크를 처리한다.
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;th&gt;&lt;center&gt;10진수&lt;/center&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;center&gt;16진수&lt;/center&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;center&gt;About&lt;/center&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;center&gt;Byte(s)&lt;/center&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;0&lt;/center&gt;&lt;/b&gt;&lt;br&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;0x0000&lt;/center&gt;     
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;b&gt;Boot Indicator&lt;/b&gt;&lt;br&gt;
+          부팅 가능시 : 0x80 | 부팅 불가시 : 0x00&lt;br&gt;
+          해당 파티션이 부팅 가능한 파티션인지 아닌지를 표시
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;1&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;1~3&lt;/center&gt;&lt;/b&gt;&lt;br&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;0x0001~0x0003&lt;/center&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;b&gt;Starting CHS Address&lt;/b&gt;&lt;br&gt;
+          CHS의 시작 주소.&lt;br&gt;
+          CHS 주소를 사용할 경우 0:06CA 으로 점프.&lt;br&gt;
+          부팅 가능한 파티션의 첫 섹터를 읽어 메모리 0:7c00에 덮어쓴다.
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;3&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;4&lt;/center&gt;&lt;/b&gt;&lt;br&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;0x0004&lt;/center&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;b&gt;Partition Type&lt;/b&gt;&lt;br&gt;
+          파티션의 종류.
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;1&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;5~7&lt;/center&gt;&lt;/b&gt;&lt;br&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;0x0005~0x0007&lt;/center&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;b&gt;Ending CHS Address&lt;/b&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;3&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;8~11&lt;/center&gt;&lt;/b&gt;&lt;br&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;0x0008~0x000B&lt;/center&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;b&gt;Starting LBA Address&lt;/b&gt;&lt;br&gt;
+          LBA의 시작주소. 파티션의 시작 위치이다.&lt;br&gt;
+          LBA 주소를 사용할 경우 0:06E6 으로 점프.&lt;br&gt;
+          부팅 가능한 파티션의 첫 섹터를 읽어 메모리 0:7c00에 덮어쓴다.
+        &lt;/td&gt;
+        &lt;td&gt;
+        &lt;center&gt;4&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;12~15&lt;/center&gt;&lt;/b&gt;&lt;br&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;0x000C~0x000F&lt;/center&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;b&gt;Total Sectors&lt;/b&gt;&lt;br&gt;
+          파티션의 총 색터 개수
+        &lt;/td&gt;
+        &lt;td&gt;&lt;center&gt;
+          4
+        &lt;/center&gt;&lt;/td&gt;
+      &lt;/tr&gt; 
+    &lt;/table&gt;
+    &lt;sub&gt;
+    * 리눅스는 최소 두 개 이상의 파티션을 필요로 한다.
+    &lt;br&gt;
+    * &lt;b&gt;Partition :&lt;/b&gt; 저장장치 내에서 나뉘어진 연속된 논리적 저장공간을 의미한다. 여러개의 파티션으로 나뉜다면 각각의 파티션은 드라이브로 인식된다.  저장공간을 나눔으로써 효율적이며 안전하게 데이터를 관리할 수 있게 된다.
+    &lt;br&gt;
+    * 파티션 설정 방법은 &lt;b&gt;MBR&lt;/b&gt;과 &lt;b&gt;GPT&lt;/b&gt;(GUID Partition Table)두 가지로 나뉜다. 대부분의 OS는 더 오래된 방법인 MBR(1983)을 사용한다. 둘의차이점에 대해 알고싶다면 &lt;a href=&quot;https://www.howtogeek.com/193669/whats-the-difference-between-gpt-and-mbr-when-partitioning-a-drive/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;여기&lt;/a&gt;에서 확인하도록 하자.
+    &lt;/sub&gt;
+    &lt;li&gt;&lt;b&gt;Signature&lt;/b&gt;&lt;/li&gt;
+    해당 섹터의 오류 확인에 관한 값의 정보&lt;br&gt;
+    기본값은 0xAA55 이다. &lt;br&gt;
+    값이 0xAA55로 뜨게 된다면 BIOS는 시스템 부팅을 시작한다. 만약 0x0000 값이 뜬다면 &apos;부팅 가능한 디스크를 찾지 못했다&apos;는 의미이기에 BIOS로부터 에러메세지를 받게 된다.
+  &lt;/ol&gt;
+&lt;/p&gt;
+&lt;img src=&quot;/media/bootloaderInAction.png&quot; alt=&quot;Bootloader in Action&quot; vspace=&quot;30px&quot; width=&quot;250&quot;&gt;
+&lt;p&gt;
+  부트로더(MBR)는 partition table을 검사하며 부팅가능한 파티션을 찾는다. 부팅 가능한 파티션을 찾아낸 후에는 두번째로 진행되야 할 부트로더(GRUB)를 찾는다. MBR 은 다음 스탭인 GRUB 를 RAM에 적재시킨 후 실행시킨다.
+&lt;/p&gt;
+&lt;h3&gt;GRUB&lt;/h3&gt;
+&lt;p&gt;
+  &lt;b&gt;GRUB :&lt;/b&gt; Grand Unified Bootloader&lt;br&gt;
+  리눅스에서 사용하는 부트로더는 LILO&lt;small&gt; (LInux LOader)&lt;/small&gt; 와 GRUB 가 있다. 두 방법 모두 싱글유저모드로 부팅하는 기능을 제공해준다. 만약 옛날 리눅스를 사용한다면 LILO 방법을 이용하고 있을 것이다. 현재는 대부분 GRUB를 사용하고 있기에 우리는 GRUB를 알아볼 것이다. GRUB는 GNU에서 만든 부트로더이다.&lt;br&gt;
+  &lt;sub&gt;
+  * GNU 가 무엇인지 모른다면 &lt;a href=&quot;https://babytiger.netlify.com/posts/intro-linux/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이전 포스팅&lt;/a&gt;을 참고하자.
+  &lt;br&gt;
+  * LILO와 GRUB 에 대한 차이점을 자세히 알아보고자 한다면 &lt;a href=&quot;http://www.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS6259570844&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;여기&lt;/a&gt;를 통해 공부해보자.&lt;/sub&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  GRUB를 통해 대부분의 OS 커널을 불러올 수 있다. 아래와 같은 기능을 지원한다.
+  &lt;ul&gt;
+    &lt;li&gt;사용자 정의  부팅 기능&lt;/li&gt;
+    &lt;li&gt;파일 시스템 직접 접근 기능&lt;/li&gt;
+    &lt;li&gt;다양한 실행 파일 형식 지원&lt;/li&gt;
+    BSD FFS, FAT16, FAT32, Minix, and ext2 etc
+    &lt;li&gt;비 멀티부팅 운영 체제 지원&lt;/li&gt;
+    Multiboot을 지원하지 않는 OS&lt;small&gt;(Linux, FreeBSD, NetBSD, and OpenBSD etc)&lt;/small&gt;를 chain-loading을 통해 지원해준다. 체인로딩은 PC BIOS 또는 EFI&lt;small&gt; (Extensible Firmware Interface)&lt;/small&gt; 플랫폼에서만 지원이 된다.&lt;br&gt;
+    &lt;sub&gt;* Chian-loading 에 관한 자세한 정보는 &lt;a href=&quot;https://www.gnu.org/software/grub/manual/grub/html_node/Chain_002dloading.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;여기&lt;/a&gt;에서 알아볼 수 있다.&lt;/sub&gt;
+    &lt;li&gt;메뉴 인터페이스 제공&lt;/li&gt;
+    &lt;li&gt;다양한 파일 시스템 지원&lt;/li&gt;
+    &lt;li&gt;자동으로 압축 해제 지원&lt;/li&gt;
+    gzip
+    &lt;li&gt;모든 RAM을 BIOS와 관계 없이 인식&lt;/li&gt;
+    &lt;li&gt;LBA 및 네트워크 지원&lt;/li&gt;
+    &lt;li&gt;디스크 없는 시스템 지원&lt;/li&gt;
+    &lt;li&gt;사람이 읽을 수 있는 설정 파일 제공&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  BIOS가 부팅 장치를 찾고 MBR을 읽어온 후 GRUB 의 첫번째 스테이지는 MBR 에서 시작된다. 이 후 GRUB 에 위치한 stage 1.5 를 불러들인다. root 디스크의 특정 위치로 부터 stage 2를 불러들여 실행시킨다. 그로인해 메뉴나 명령 프롬프트가 화면에 출력이 된다. LILO 와 비교하였을때 GRUB 가 가지는 가장 큰 특징은 GRUB 는 커널의 물리적인 위치를 알 필요가 없다는 것이다. 즉, 파일명과 커널이 위치하고 있는 파티션만 안다면 커널을 로드할 수 있다. 파일명이 바뀌지 않는이상 매번 GRUB를 실행해 주지 않아도 된다. GRUB 실행 화면을 통해 어떤 커널&lt;small&gt;(두 개 이상 사용시)&lt;/small&gt;을 로딩할 것인가를 선택할 수 있다.
+  &lt;br&gt;&lt;sub&gt;* GRUB를 설치하고자 한다면 &lt;a href=&quot;ftp://alpha.gnu.org/gnu/grub/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;이곳&lt;/a&gt;에서 다운 가능하다.&lt;br&gt;
+  * Debian 을 사용하는 경우라면 &lt;code&gt;# apt-get install grub&lt;/code&gt; 의 명령어만 입력하면 된다.
+  &lt;/sub&gt;
+&lt;/p&gt;
+&lt;h3&gt;Kernel&lt;/h3&gt;
+&lt;p&gt;
+  OS 의 핵심이 되는 부분. &lt;br&gt;
+  가상 메모리, 하드웨어 입출력 자원관리, 시스템 동작, 보안등을 제어해준다. &lt;br&gt;&lt;br&gt;
+  다음 작업으로써는 리눅스 커널과 initramfs&lt;small&gt;(initial RAM-based file system)&lt;/small&gt; 가 메모리에 적재된다. GRUB 부트로더가 Kernel의 이미지를 읽어서 부팅시킨다. 리눅스 커널은 bzImage&lt;small&gt; (Big Zimage)&lt;/small&gt; 의 형태를 띄고 있다. 이 이미지는 커널이 컴파일 되는 동안 생성 된다. 관련 명령어는 &lt;code&gt;make bzImage&lt;/code&gt; 이다. bzImage는 부트섹션, 셋업코드, 커널이미지로 구성되어 있다. 셋업코드는 하드웨어 장치를 해당 리눅스 커널에 맞게 초기화 작업을 진행한다. &lt;code&gt;setup()&lt;/code&gt; 에 관한 작업 내용은 아래와 같다. &lt;br&gt;
+  &lt;ul&gt;
+    &lt;li&gt;키보드 반복 간격과 속도의 설정&lt;/li&gt;
+    &lt;li&gt;VGA 초기화&lt;/li&gt;
+    &lt;li&gt;디스크 컨트롤러 초기화&lt;/li&gt;
+    &lt;li&gt;PS/2 장치 검사&lt;/li&gt;
+    &lt;li&gt;APM&lt;small&gt; (Advanced Power Management) &lt;/small&gt;과 EDD&lt;small&gt; (Enhanced Disk Drive) &lt;/small&gt;의 BIOS 지원 여부 검사&lt;/li&gt;
+    &lt;li&gt;FPU&lt;small&gt; (Floating Point Unit) &lt;/small&gt; 초기화 (FPU가 존재할 경우에만)&lt;/li&gt;
+    &lt;li&gt;PIC&lt;small&gt; (Programmable Interrupt Controllers) &lt;/small&gt; 를 다시 프로그래밍 한 후 모든 인터럽트 마스크&lt;/li&gt;
+    &lt;li&gt;...etc&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  이 후 &lt;code&gt;strtup_32()&lt;/code&gt; 에 해당되는 작업이 시작된다. 레지스터와 임시 스택을 초기화 시켜주는 작업이 이루어진다. 상기 두 명령어에 해당하는 작업이 끝나면 커널이 실행된다. 작업 명령어는 &lt;code&gt;start_kernel&lt;/code&gt; 이다.&lt;br&gt;
+  &lt;sub&gt;* 커널의 동작에 관해 더 자세히 알고자 한다면 &lt;a href=&quot;https://0xax.gitbooks.io/linux-insides/Booting/linux-bootstrap-2.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;여기&lt;/a&gt;에서 세부 내용을 공부해보도록 하자&lt;/sub&gt;
+&lt;/p&gt;
+&lt;img src=&quot;/media/bzImage.png&quot; alt=&quot;Anatomy of bzImage&quot; vspace=&quot;30px&quot; width=&quot;450&quot;&gt;
+&lt;h3&gt;Init&lt;/h3&gt;
+&lt;p&gt;
+  커널이 셋업이 완료된 후에 커널은 시스템 초기화 작업인 &lt;code&gt;/sbin/init&lt;/code&gt; 을 수행시킨다. 이로써 리눅스 유저를 위한 환경이 준비가 된다. 그 다음은 &lt;code&gt;/etc/rc.d/rc.sysinit&lt;/code&gt; 으로써 환경 경로, 스왑 시작, 파일 시스템 확인등에 관한 작업이 진행된다. 초기화에 관한 작업이 모두 수행된 후에는 마지막 스탭인 Runlevel 프로그램이 수행된다.
+&lt;/p&gt;
+&lt;img src=&quot;/media/initService.png&quot; alt=&quot;Init&quot; width=&quot;200&quot;&gt;
+&lt;h3&gt;Runlevel&lt;/h3&gt;
+&lt;p&gt;
+  이 부분에서는 &lt;code&gt;/etc/rc.d/rc*.c&lt;/code&gt; 에 관한 작업이 수행된다. 여러 가지로 분류되어 있는데 시스템을 어떤 방식으로 부팅할 것인가에 관한 것이다. Runlevel의 종류는 아래와 같다. 현재의 진행중인 runlevel에 관한 정보를 알고 싶을때 사용하는 명령어는 &lt;code&gt;#who -r&lt;/code&gt;이다.
+  &lt;table&gt;
+      &lt;tr&gt;
+        &lt;th&gt;&lt;center&gt;Runlevel&lt;/center&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;center&gt;Mode | Directories&lt;/center&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;center&gt;Action&lt;/center&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;0&lt;/center&gt;&lt;/b&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;
+            &lt;b&gt;Shutdown&lt;/b&gt;&lt;br&gt;
+            /etc/rc.d/rc0.d/
+          &lt;/center&gt;     
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;Shuts down system&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;1&lt;/center&gt;&lt;/b&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;&lt;b&gt;Single-User Mode&lt;/b&gt;&lt;br&gt;
+            /etc/rc.d/rc1.d/
+          &lt;/center&gt;     
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;Maintenance mode&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;2&lt;/center&gt;&lt;/b&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;&lt;b&gt;Multi-User Mode&lt;/b&gt;&lt;br&gt;
+            /etc/rc.d/rc2.d/  
+          &lt;/center&gt;     
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;Does not configure network interfaces&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;3&lt;/center&gt;&lt;/b&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;&lt;b&gt;Multi-User Mode with Networking&lt;/b&gt;&lt;br&gt;
+            /etc/rc.d/rc3.d/
+          &lt;/center&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;Starts the system normally with all the services(Text mode interface)&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;4&lt;/center&gt;&lt;/b&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;&lt;b&gt;N/A&lt;/b&gt;&lt;br&gt;
+            /etc/rc.d/rc4.d/
+          &lt;/center&gt;   
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;Not used&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;5&lt;/center&gt;&lt;/b&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;&lt;b&gt;X11&lt;/b&gt;&lt;br&gt;
+            /etc/rc.d/rc5.d/
+          &lt;/center&gt;   
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;As runlevel 3 + GUI&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;b&gt;&lt;center&gt;6&lt;/center&gt;&lt;/b&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;&lt;b&gt;Reboot&lt;/b&gt;&lt;br&gt;
+            /etc/rc.d/rc6.d/
+          &lt;/center&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;center&gt;Reboots the system&lt;/center&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  이로써 bootloader의 6가지의 스탭들을 알아보았다. 각각의 스탭별로 더 자세한 내용을 공부하고자 한다면 아래 reference에 정리해둔 링크를 참고하도록 하자. 다음 포스팅에서는 커널에 대해 자세히 알아보고 한다.
+&lt;/p&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.pas.rochester.edu/~pavone/particle-www/telescopes/ComputerCommands.htm&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Basic Linux Commands&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.ittc.ku.edu/~kulkarni/teaching/EECS678/projects/scheduling/materials/plka.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Linux Kernel Architecture by. Wolfgang Mauerer&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.linuxlab.co.kr/docs/01-05-5.htm&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;막강한 부트로더 GRUB&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://gerardnico.com/data_storage/mbr&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Data Storage - The Master Boot Record (MBR) &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.thegeekstuff.com/2011/02/linux-boot-process&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;6 Stages of Linux Boot Process (Startup Sequence)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://hyd3.tistory.com/122?category=805746&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;[File System] Partition VS Volume&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://oracle-base.com/articles/8i/partitioned-tables-and-indexes&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Partitioned Tables And Indexes&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Linux_kernel&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Linux Kernel&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=qIEGavnI-B4&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Linux Boot Process : Grub, initrd, explained&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://www.sunpower-uk.com/glossary/what-is-power-good-signal/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Power Good Signal&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://forensic-proof.com/archives/435&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;MBR (Master Boot Record)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/1125025/what-is-the-role-of-magic-number-in-boot-loading-in-linux&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;What is the role of Magic Number in boot loading in Linux?&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/GRUB&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;GRUB&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://tldp.meulie.net/en/Kernel-HOWTO/ar01s10.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Kernel Files Information&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Anatomy-of-bzimage.png&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;File:Anatomy-of-bzimage.png&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://lunatine.net/2015/12/18/linux-booting/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Linux 부팅과정 &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/6/html/installation_guide/s2-boot-init-shutdown-init&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;F.2.4. /SBIN/INIT 프로그램&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.linuxvasanth.com/tag/runlevels/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;What is Run Level in Linux?&lt;/a&gt;&lt;/li&gt;  
+    &lt;!-- &lt;li&gt;&lt;a href=&quot;#&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;-&lt;/a&gt;&lt;/li&gt;       --&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Humane Typography in the Digital Age]]></title><description><![CDATA[An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.]]></description><link>https://hkhch.github.io//posts/humane-typography-in-the-digital-age/</link><guid isPermaLink="false">https://hkhch.github.io//posts/humane-typography-in-the-digital-age/</guid><pubDate>Sat, 19 Aug 2017 22:40:32 GMT</pubDate><content:encoded>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#the-first-transition&quot;&gt;The first transition&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#the-digital-age&quot;&gt;The digital age&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#loss-of-humanity-through-transitions&quot;&gt;Loss of humanity through transitions&lt;/a&gt;&lt;/li&gt;
@@ -291,7 +917,7 @@
   &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 80px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/71ba9417da76c390c80ad2f49c9c227d/cpu.svg&quot; alt=&quot;Test SVG&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[HAN KWANG HUN]]></title><description><![CDATA[Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.]]></description><link>https://hkhch.github.io//posts/perfecting-the-art-of-perfection/</link><guid isPermaLink="false">https://hkhch.github.io//posts/perfecting-the-art-of-perfection/</guid><pubDate>Thu, 01 Sep 2016 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/71ba9417da76c390c80ad2f49c9c227d/cpu.svg&quot; alt=&quot;Test SVG&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[HAN KWANG HUN HAN HAN]]></title><description><![CDATA[Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.]]></description><link>https://hkhch.github.io//posts/perfecting-the-art-of-perfection/</link><guid isPermaLink="false">https://hkhch.github.io//posts/perfecting-the-art-of-perfection/</guid><pubDate>Thu, 01 Sep 2016 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
